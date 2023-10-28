@@ -1,3 +1,6 @@
+#!/usr/bin/bash
+
+# Changes the default directory to be Documents rather than the home directory
 if [ $PWD = $HOME ]; then
 	cd ~/Documents/
 fi
@@ -25,15 +28,23 @@ alias kittyconf="vim ~/.config/kitty/kitty.conf"
 alias vim=nvim
 alias sqlite=sqlite3
 
+# cf alias uses fzf with find to fuzzy find directories and then cd to the
+# selected directory
 alias cf="cd \$(find . -type d -print | fzf)"
 alias cdc="cd ~/.config"
 alias cdd="cd ~/Documents"
 alias notes="pushd . && cd ~/Documents/Notes/ && nvim"
 
+# Makes exa (better ls) always show the icons
+alias exa="exa --icons"
+alias exaa="exa --icons --all"
+alias exat="exa --icons --tree"
+
 # Start a new default HTMX + Go with Fiber project
 alias htmxinit="bash ~/Documents/Defaults/htmx/init.sh"
 alias pygameinit="bash ~/Documents/Defaults/pygame/init.sh"
 
+# Adds aliases for going up directories without using cd ../../
 alias ..="cd ../"
 alias ...="cd ../../"
 alias ....="cd ../../../"
@@ -47,15 +58,6 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-green="\[\033[01;32m\]"
-red="\[\033[01;31m\]"
-blue="\[\033[01;34m\]"
-reset="\[\033[00m\]"
-
-alias exa="exa --icons"
-alias exaa="exa --icons --all"
-alias exat="exa --icons --tree"
-
 if ! shopt -oq posix; then
 	if [ -f /usr/share/bash-completion/bash_completion ]; then
 		. /usr/share/bash-completion/bash_completion
@@ -64,6 +66,7 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+# The setups for starship (shell prompt) and opam (ocaml) and cargo
 . "$HOME/.cargo/env"
 eval "$(starship init bash)"
 eval $(opam env --switch=default)
