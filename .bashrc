@@ -2,6 +2,7 @@ if [ $PWD = $HOME ]; then
 	cd ~/Documents/
 fi
 
+# Starts tmux if a session is not already running
 if [ -z $TMUX ]; then
 	tmux
 fi
