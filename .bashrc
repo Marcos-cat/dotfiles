@@ -10,6 +10,9 @@ if [ -z $TMUX ]; then
 	tmux
 fi
 
+# Enables vim-like keybindings 
+set -o vi
+
 alias c=clear
 alias q=exit
 
@@ -26,7 +29,6 @@ alias tmuxconf="nvim ~/.config/tmux/tmux.conf"
 alias kittyconf="vim ~/.config/kitty/kitty.conf"
 
 alias vim=nvim
-alias sqlite=sqlite3
 
 # cf alias uses fzf with find to fuzzy find directories and then cd to the
 # selected directory
@@ -39,6 +41,9 @@ alias notes="pushd . && cd ~/Documents/Notes/ && nvim"
 alias exa="exa --icons"
 alias exaa="exa --icons --all"
 alias exat="exa --icons --tree"
+
+# Change the colors to use terminal colors rather than custom colors
+alias bat="bat --theme=ansi"
 
 # Start a new default HTMX + Go with Fiber project
 alias htmxinit="bash ~/Documents/Defaults/htmx/init.sh"
