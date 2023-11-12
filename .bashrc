@@ -29,6 +29,7 @@ alias tmuxconf="nvim ~/.config/tmux/tmux.conf"
 alias kittyconf="vim ~/.config/kitty/kitty.conf"
 
 alias vim=nvim
+alias lz=lazygit
 
 # cf alias uses fzf with find to fuzzy find directories and then cd to the
 # selected directory
