@@ -73,6 +73,7 @@ if ! shopt -oq posix; then
 fi
 
 # The setups for starship (shell prompt) and opam (ocaml) and cargo
+RUSTC_WRAPPER=sccache
 . "$HOME/.cargo/env"
 eval "$(starship init bash)"
 eval $(opam env --switch=default)
